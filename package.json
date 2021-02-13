@@ -1,0 +1,12 @@
+{
+    "name": "imp_heroku_salesforce",
+    "version": "1.0.0",
+    "description": "imp_heroku_salesforce app",
+    "main": "index.js",
+    "dependencies": {
+        "pg": "6.3.0"
+    },
+    "scripts": {},
+    "author": "",
+    "license": "MIT"
+}
