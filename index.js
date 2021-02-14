@@ -9,6 +9,8 @@ const url = require('url');
 
 //// const pg = require('pg');
 //// Above replaced with line below
+const { Pool } = require('pg')
+
 //// new
 var pool = new pg.Pool();
 
