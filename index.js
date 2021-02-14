@@ -10,9 +10,9 @@ const url = require('url');
 //// const pg = require('pg');
 //// Above replaced with line below
 const { Pool } = require('pg')
-const pool = new Pool()
+const pool = new Pool({ ssl: { rejectUnauthorized: false } })
 
-const client = new Client({ ssl: { rejectUnauthorized: false } })
+////const client = new Client({ ssl: { rejectUnauthorized: false } })
 
 //// new
 ////var pool = new pg.Pool();
