@@ -12,6 +12,8 @@ const url = require('url');
 const { Pool } = require('pg')
 const pool = new Pool()
 
+const client = new Client({ ssl: { rejectUnauthorized: false } })
+
 //// new
 ////var pool = new pg.Pool();
 
@@ -29,7 +31,7 @@ const TABLE_NAMES = {
 (() => {
 ////    pg.defaults.ssl = true;
 ////    Above replaced with line below
-    pool.defaults.ssl = true;
+////    pool.defaults.ssl = true;
     
     let server = http.createServer((req, res) => {
         let received = "";
