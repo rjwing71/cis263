@@ -10,11 +10,12 @@ const url = require('url');
 //// const pg = require('pg');
 //// Above replaced with line below
 const { Pool } = require('pg')
+const pool = new Pool()
 
 //// new
-var pool = new pg.Pool();
+////var pool = new pg.Pool();
 
-const client = new Client({ ssl: { rejectUnauthorized: false } });
+////const client = new Client({ ssl: { rejectUnauthorized: false } });
 
 const PORT = process.env.PORT;
 const DATABASE_URL = process.env.DATABASE_URL;
