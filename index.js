@@ -6,7 +6,13 @@
 
 const http = require('http');
 const url = require('url');
-const pg = require('pg');
+
+//// const pg = require('pg');
+//// Above replaced with line below
+//// new
+var pool = new pg.Pool();
+
+const client = new Client({ ssl: { rejectUnauthorized: false } });
 
 const PORT = process.env.PORT;
 const DATABASE_URL = process.env.DATABASE_URL;
@@ -15,8 +21,13 @@ const TABLE_NAMES = {
     "case": "salesforce.Case"
 };
 
+
+
 (() => {
-    pg.defaults.ssl = true;
+////    pg.defaults.ssl = true;
+////    Above replaced with line below
+    pool.defaults.ssl = true;
+    
     let server = http.createServer((req, res) => {
         let received = "";
         req.on('data', (chunk) => {
@@ -80,7 +91,9 @@ function sUpdate(query, received){
             });
             return;
         }
-        pg.connect(DATABASE_URL, function(err, client, done) {
+////    pg.connect(DATABASE_URL, function(err, client, done) {
+////    Above replaced with line below            
+        pool.connect(DATABASE_URL, function(err, client, done) {
             if (err) {
                 reject({
                     'code': 500, 
@@ -186,7 +199,9 @@ function sCase(query, received){
             });
             return;
         }
-        pg.connect(DATABASE_URL, function(err, client, done) {
+////    pg.connect(DATABASE_URL, function(err, client, done) {
+////    Above replaced with line below
+        pool.connect(DATABASE_URL, function(err, client, done) {
             if (err) {
                 reject({
                     'code': 500, 
